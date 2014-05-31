@@ -10,8 +10,8 @@ Somervillefoodrescue::Application.routes.draw do
   #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
-  get 'users' => 'pages#users_index', as: :volunteers
-  get 'users/:id' => 'pages#show_user', as: :volunteer
+  get 'volunteers' => 'pages#users_index', as: :volunteers
+  get 'volunteers/:id' => 'pages#show_user', as: :volunteer
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :donors
