@@ -17,7 +17,7 @@ Somervillefoodrescue::Application.routes.draw do
   resources :donors
   resources :recipients
   resources :pickups
-  resources :pickup_reports
+  resources :pickup_reports, path: :reports
 
   # Example resource route with options:
   #   resources :products do
