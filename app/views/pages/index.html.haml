@@ -13,6 +13,7 @@
             .col-lg-8.col-lg-offset-2
                 %p Shwopp is a marketplace for trading items with people near you. If you are low on cash and have some old stuff that you don't use anymore, Shwopp is the app for you. Someone else's junk could be your treasure.
                 %br/
-                %p
-                    = link_to "Sign In Now", "#signIn", class: "btn btn-warning btn-lg", "data-toggle" => "modal"
-                    = link_to "Sign Up Now", "#signUp", class: "btn btn-green btn-lg", "data-toggle" => "modal"
+                - if !user_signed_in?
+                    %p
+                        = link_to "Sign In Now", "#signIn", class: "btn btn-warning btn-lg", "data-toggle" => "modal"
+                        = link_to "Become A Volunteer", "#signUp", class: "btn btn-green btn-lg", "data-toggle" => "modal"
