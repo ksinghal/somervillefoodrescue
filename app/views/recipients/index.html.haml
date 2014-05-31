@@ -1,0 +1,7 @@
+.container
+	- @recipients.all.each do |recipient|
+		.holder
+			= recipient.name
+			= recipient.address
+			= recipient.email
+			= recipient.phone_number

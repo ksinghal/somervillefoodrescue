@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+	
 	def index
 	end
 
@@ -9,4 +10,5 @@ class PagesController < ApplicationController
 	def show_user
 		@user = User.find(:id)
 	end
+
 end

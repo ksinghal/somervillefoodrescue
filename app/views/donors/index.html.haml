@@ -1,0 +1,7 @@
+.container
+	- @donors.all.each do |donor|
+		.holder
+			= donor.name
+			= donor.address
+			= donor.email
+			= donor.phone_number

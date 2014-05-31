@@ -11,15 +11,15 @@
 		.collapse.navbar-collapse#collapse
 			%ul.nav.navbar-nav
 				%li
-					= link_to "Donors", root_url
+					= link_to "Schedule", pickups_path
 				%li
-					= link_to "Recipients", root_url
+					= link_to "Donors", donors_path
+				%li
+					= link_to "Recipients", recipients_path
 				%li
 					= link_to "Volunteers", volunteers_path
 				%li
-					= link_to "Schedule", root_url
-				%li
-					= link_to "Stats", root_url
+					= link_to "Stats", pickup_reports_path
 			
 			%ul.nav.navbar-nav.navbar-right
 				- if user_signed_in?
