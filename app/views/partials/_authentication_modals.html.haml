@@ -1,0 +1,56 @@
+#signIn.modal.fade
+    .modal-dialog
+        .modal-content
+            .modal-header
+                %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+                %h3.modal-title Sign In
+            .modal-body
+                = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+                    = devise_error_messages!
+                    %br/
+                    .left-inner-addon
+                        %i.fa.fa-envelope
+                        = f.text_field :email, :placeholder => "Email", :autofocus => true, class: "form-control"
+                    %br/
+                    .left-inner-addon
+                        %i.fa.fa-asterisk
+                        = f.password_field :password, :placeholder => "Password", class: "form-control"
+                    %br/
+                    - if devise_mapping.rememberable?
+                        %label
+                            = f.check_box :remember_me
+                            Remember Me
+                    %br/
+                    %br/
+                    = f.submit "Sign In", class: "btn btn-success btn-lg"
+#signUp.modal.fade
+    .modal-dialog
+        .modal-content
+            .modal-header
+                %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+                %h3.modal-title Sign Up
+            .modal-body
+                = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+                    = devise_error_messages!
+                    .left-inner-addon
+                        %i.fa.fa-user
+                        = f.text_field :full_name, :placeholder => "Full Name", :autofocus => true, class: "form-control"
+                    %br/
+                    .left-inner-addon
+                        %i.fa.fa-envelope
+                        = f.email_field :email, :placeholder => "Email", class: "form-control"
+                    %br/
+                    .left-inner-addon
+                        %i.fa.fa-phone
+                        = f.text_field :phone_number, :placeholder => "Phone Number", class: "form-control"
+                    %br/
+                    .left-inner-addon
+                        %i.fa.fa-asterisk
+                        = f.password_field :password, :placeholder => "Password", class: "form-control"
+                    %br/
+                    .left-inner-addon
+                        %i.fa.fa-asterisk
+                        = f.password_field :password_confirmation, :placeholder => "Password Confirmation", class: "form-control"
+                    %br/
+                    %br/
+                    = f.submit "Sign Up", class: "btn btn-success btn-lg"

@@ -1,0 +1,6 @@
+.container
+	- @users.all.each do |user|
+		.holder
+			= user.full_name
+			= user.phone_number
+			= user.email

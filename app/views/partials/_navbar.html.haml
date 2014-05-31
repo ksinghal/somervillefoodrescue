@@ -1,0 +1,32 @@
+%nav.navbar.navbar-inverse.navbar-fixed-top{role: "navigation"}
+	.container-fluid
+		.navbar-header
+			%button.navbar-toggle{"data-target" => "#collapse", "data-toggle" => "collapse", type: "button"}
+				%span.sr-only Toggle navigation
+				%span.icon-bar
+				%span.icon-bar
+				%span.icon-bar
+			.navbar-brand
+				= link_to "Somerville Food Rescue", root_url
+		.collapse.navbar-collapse#collapse
+			%ul.nav.navbar-nav
+				%li
+					= link_to "Donors", root_url
+				%li
+					= link_to "Recipients", root_url
+				%li
+					= link_to "Volunteers", volunteers_path
+				%li
+					= link_to "Schedule", root_url
+				%li
+					= link_to "Stats", root_url
+			
+			%ul.nav.navbar-nav.navbar-right
+				- if user_signed_in?
+					%li
+						= link_to "Sign Out", destroy_user_session_path, :method => :delete
+				- else
+					%li
+						= link_to "Sign In", "#signIn", "data-toggle" => "modal"
+					%li
+						= link_to "Sign Up", "#signUp", "data-toggle" => "modal"
