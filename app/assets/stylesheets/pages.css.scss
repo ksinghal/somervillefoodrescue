@@ -1,3 +1,29 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.volunteer-box {
+	background-color: white;
+	padding: 15px;
+}
+
+.volunteer-name {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.volunteer-email, .volunteer-phone {
+	display: inline-block;
+}
+
+.left-section {
+	float: left;
+}
+
+.right-section {
+	float: right;
+}
+
+.volunteer-button {
+	line-height: 34px;
+}
