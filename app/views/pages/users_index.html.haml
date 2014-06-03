@@ -1,35 +1,36 @@
-.container
-	.row
-		.col-md-12.centered
-			%h1.underlined
-				VOLUNTEERS
-			.spacer
-	- @users.all.each do |user|
+#call.background
+	.container
 		.row
-			.col-md-2
-			.col-md-8.volunteer-box
-				.left-section
-					.volunteer-name
-						= user.full_name
-					.volunteer-email
-						= mail_to user.email
-					&bull;
-					.volunteer-phone
-						= user.phone_number
-				.right-section
-					= link_to root_url, class: "btn btn-primary btn-lg volunteer-button" do
-						%i.fa.fa-bar-chart-o
-						&nbsp;
-						Stats
-					- if user_signed_in?
-						- if current_user.admin?
-							= link_to root_url, class: "btn btn-success btn-lg volunteer-button" do
-								%i.fa.fa-arrow-circle-up
-								&nbsp;
-								Make Admin
-							= link_to root_url, class: "btn btn-danger btn-lg volunteer-button" do
-								%i.fa.fa-minus-circle
-								&nbsp;
-								Remove
-			.col-md-2
-		
+			.col-md-12.centered
+				%h1.underlined
+					VOLUNTEERS
+				.spacer
+		- @users.all.each do |user|
+			.row
+				.col-md-12.volunteer-box
+					.left-section
+						.volunteer-name
+							= link_to root_url do
+								= user.full_name
+						.volunteer-phone
+							= number_to_phone(user.phone_number, area_code: true)
+					.right-section
+						= mail_to user.email, class: "btn btn-primary btn-lg volunteer-button" do
+							%i.fa.fa-envelope
+							&nbsp;
+							Email
+						= link_to root_url, class: "btn btn-warning btn-lg volunteer-button" do
+							%i.fa.fa-bar-chart-o
+							&nbsp;
+							Stats
+						- if user_signed_in?
+							- if current_user.admin?
+								- if !user.admin?
+									= link_to root_url, class: "btn btn-success btn-lg volunteer-button" do
+										%i.fa.fa-arrow-circle-up
+										&nbsp;
+										Make Admin
+								= link_to root_url, class: "btn btn-danger btn-lg volunteer-button" do
+									%i.fa.fa-minus-circle
+									&nbsp;
+									Remove

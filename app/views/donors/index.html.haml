@@ -1,7 +1,34 @@
-.container
-	- @donors.all.each do |donor|
-		.holder
-			= donor.name
-			= donor.address
-			= donor.email
-			= donor.phone_number
+#call.background
+	.container
+		.row
+			.col-md-12.centered
+				%h1.underlined
+					DONORS
+				.spacer
+		- @donors.all.each do |donor|
+			.row
+				.col-md-12.donor-box
+					.left-section
+						.donor-name
+							= link_to root_url do
+								= donor.name
+						.donor-address
+							= donor.address
+						&nbsp;
+						&nbsp;
+						&bull;
+						&nbsp;
+						&nbsp;
+						.donor-phone
+							= number_to_phone(donor.phone_number, area_code: true)
+					.right-section
+						= mail_to donor.email, class: "btn btn-primary btn-lg donor-button" do
+							%i.fa.fa-envelope
+							&nbsp;
+							Email
+						- if user_signed_in?
+							- if current_user.admin?
+								= link_to root_url, class: "btn btn-danger btn-lg donor-button" do
+									%i.fa.fa-minus-circle
+									&nbsp;
+									Remove

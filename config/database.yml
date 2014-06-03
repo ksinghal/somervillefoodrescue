@@ -5,10 +5,11 @@
 #   gem 'sqlite3'
 development:
   adapter: postgresql
-  host: localhost
-  encoding: unicode
-  database: somervillefoodrescue_development
-  pool: 5
+  host: ec2-174-129-218-200.compute-1.amazonaws.com
+  database: d8v2928f0esqg
+  user: hnecsificmqyla
+  port: 5432
+  password: nWmazZQWoSA2JtnOqW7N5l3rsz
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

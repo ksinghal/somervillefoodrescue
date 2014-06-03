@@ -1,0 +1,51 @@
+- @donor = Donor.find(pickup.donor_id)
+- @recipient = Recipient.find(pickup.recipient_id)
+.row
+	.col-md-12.pickup-box
+		.left-section.centered.left-section-width
+			.row
+				.col-md-4
+					%h4 DONOR
+					.div
+						= link_to root_url do
+							= truncate(@donor.name, length: 22)
+					.div
+						= "(#{pickup.donor_window_start.strftime('%I:%M %p')} - #{pickup.donor_window_end.strftime('%I:%M %p')})"
+				.col-md-1
+					%h4
+						%i.fa.fa-arrow-right
+				.col-md-4
+					%h4 RECIPIENT
+					.div
+						= link_to root_url do
+							= truncate(@recipient.name, length: 22)
+					.div
+						= "(#{pickup.recipient_window_start.strftime('%I:%M %p')} - #{pickup.recipient_window_end.strftime('%I:%M %p')})"
+				.col-md-3
+					%h4 VOLUNTEER
+					.div
+						- if pickup.user_id.nil?
+							%i No Volunteer
+						- else
+							= link_to root_url do
+								= truncate(User.find(pickup.user_id).full_name, length: 15)
+					.div
+						- if !pickup.user_id.nil?
+							= number_to_phone(User.find(pickup.user_id).phone_number, area_code: true)
+		.right-section
+			- if user_signed_in?
+				- if pickup.user_id.nil?
+					= link_to take_shift_path(pickup.id), class: "btn btn-success btn-lg pickup-button" do
+						%i.fa.fa-clock-o
+						&nbsp;
+						Take Shift
+				- if pickup.user_id == current_user.id
+					= link_to leave_shift_path(pickup.id), class: "btn btn-warning btn-lg pickup-button" do
+						%i.fa.fa-arrow-circle-right
+						&nbsp;
+						Leave Shift
+				- if current_user.admin?
+					= link_to root_url, class: "btn btn-danger btn-lg pickup-button" do
+						%i.fa.fa-minus-circle
+						&nbsp;
+						Remove

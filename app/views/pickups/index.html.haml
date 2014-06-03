@@ -1,0 +1,22 @@
+#call.background
+	.container
+		.row
+			.col-md-12.centered
+				%h1.underlined
+					PICKUPS
+				.spacer
+		- @pickups.find_all_by_day_of_week("Monday").each do |pickup|
+			%h2.day-title.left-aligned Monday
+			= render 'partials/pickup_box', pickup: pickup
+		- @pickups.find_all_by_day_of_week("Tuesday").each do |pickup|
+			= render 'partials/pickup_box', pickup: pickup
+		- @pickups.find_all_by_day_of_week("Wednesday").each do |pickup|
+			= render 'partials/pickup_box', pickup: pickup
+		- @pickups.find_all_by_day_of_week("Thursday").each do |pickup|
+			= render 'partials/pickup_box', pickup: pickup
+		- @pickups.find_all_by_day_of_week("Friday").each do |pickup|
+			= render 'partials/pickup_box', pickup: pickup
+		- @pickups.find_all_by_day_of_week("Saturday").each do |pickup|
+			= render 'partials/pickup_box', pickup: pickup
+		- @pickups.find_all_by_day_of_week("Sunday").each do |pickup|
+			= render 'partials/pickup_box', pickup: pickup

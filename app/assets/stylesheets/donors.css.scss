@@ -1,3 +1,31 @@
 // Place all the styles related to the donors controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.donor-box {
+	background-color: whitesmoke;
+	padding: 15px;
+	margin-bottom: 10px;
+	text-align: left !important;
+}
+
+.donor-name {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.donor-address, .donor-phone {
+	display: inline-block;
+}
+
+.left-section {
+	float: left;
+}
+
+.right-section {
+	float: right;
+}
+
+.donor-button {
+	line-height: 34px;
+}

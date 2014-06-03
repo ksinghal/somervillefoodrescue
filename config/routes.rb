@@ -13,6 +13,9 @@ Somervillefoodrescue::Application.routes.draw do
   get 'volunteers' => 'pages#users_index', as: :volunteers
   get 'volunteers/:id' => 'pages#show_user', as: :volunteer
 
+  get 'take_shift/:pickup_id' => 'actions#take_shift', as: :take_shift
+  get 'leave_shift/:pickup_id' => 'actions#leave_shift', as: :leave_shift
+
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :donors
   resources :recipients

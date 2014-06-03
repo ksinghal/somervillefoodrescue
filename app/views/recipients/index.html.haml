@@ -1,7 +1,34 @@
-.container
-	- @recipients.all.each do |recipient|
-		.holder
-			= recipient.name
-			= recipient.address
-			= recipient.email
-			= recipient.phone_number
+#call.background
+	.container
+		.row
+			.col-md-12.centered
+				%h1.underlined
+					RECIPIENTS
+				.spacer
+		- @recipients.all.each do |recipient|
+			.row
+				.col-md-12.recipient-box
+					.left-section
+						.recipient-name
+							= link_to root_url do
+								= recipient.name
+						.recipient-address
+							= recipient.address
+						&nbsp;
+						&nbsp;
+						&bull;
+						&nbsp;
+						&nbsp;
+						.recipient-phone
+							= number_to_phone(recipient.phone_number, area_code: true)
+					.right-section
+						= mail_to recipient.email, class: "btn btn-primary btn-lg recipient-button" do
+							%i.fa.fa-envelope
+							&nbsp;
+							Email
+						- if user_signed_in?
+							- if current_user.admin?
+								= link_to root_url, class: "btn btn-danger btn-lg recipient-button" do
+									%i.fa.fa-minus-circle
+									&nbsp;
+									Remove

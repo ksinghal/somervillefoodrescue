@@ -1,3 +1,31 @@
 // Place all the styles related to the recipients controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.recipient-box {
+	background-color: whitesmoke;
+	padding: 15px;
+	margin-bottom: 10px;
+	text-align: left !important;
+}
+
+.recipient-name {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.recipient-address, .recipient-phone {
+	display: inline-block;
+}
+
+.left-section {
+	float: left;
+}
+
+.right-section {
+	float: right;
+}
+
+.recipient-button {
+	line-height: 34px;
+}

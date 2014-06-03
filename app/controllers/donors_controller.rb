@@ -1,7 +1,7 @@
 class DonorsController < ApplicationController
 	
 	def index
-		@donors = Donor.all
+		@donors = Donor.all.order('created_at ASC')
 	end
 
 	def show
