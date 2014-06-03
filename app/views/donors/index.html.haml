@@ -10,7 +10,7 @@
 				.col-md-12.donor-box
 					.left-section
 						.donor-name
-							= link_to root_url do
+							= link_to donor_path(donor.id) do
 								= donor.name
 						.donor-address
 							= donor.address

@@ -10,7 +10,7 @@
 				.col-md-12.recipient-box
 					.left-section
 						.recipient-name
-							= link_to root_url do
+							= link_to recipient_path(recipient.id) do
 								= recipient.name
 						.recipient-address
 							= recipient.address

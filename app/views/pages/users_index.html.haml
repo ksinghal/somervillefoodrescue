@@ -10,7 +10,7 @@
 				.col-md-12.volunteer-box
 					.left-section
 						.volunteer-name
-							= link_to root_url do
+							= link_to volunteer_path(user.id) do
 								= user.full_name
 						.volunteer-phone
 							= number_to_phone(user.phone_number, area_code: true)
