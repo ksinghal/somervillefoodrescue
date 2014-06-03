@@ -26,3 +26,5 @@
 		%h2.day-title.left-aligned Sunday
 		- @pickups.find_all_by_day_of_week("Sunday").each do |pickup|
 			= render 'partials/pickup_box', pickup: pickup
+		.spacer
+		.spacer
