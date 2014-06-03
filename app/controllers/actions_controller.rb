@@ -3,8 +3,10 @@ class ActionsController < ApplicationController
 
 	def take_shift
 		@pickup = Pickup.find(params[:pickup_id])
-		@pickup.user_id = current_user.id
-		@pickup.save
+		if @pickup.user_id == nil
+			@pickup.user_id = current_user.id
+			@pickup.save
+		end
 		redirect_to pickups_path
 	end
 
