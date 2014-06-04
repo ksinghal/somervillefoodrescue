@@ -49,6 +49,7 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'carrierwave'
 gem 'carrierwave-postgresql'
 gem 'postgresql_lo_streamer'
+gem 'rmagick', '2.13.2'
 
 # Better and easier form builder
 gem 'simple_form'
