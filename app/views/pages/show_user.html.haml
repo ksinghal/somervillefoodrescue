@@ -1,2 +1,11 @@
-= @user.full_name
-= image_tag(@user.avatar.url) if @user.avatar?
+#call.background
+	.container
+		.row
+			.col-md-12.centered
+				%h1.underlined
+					= @user.full_name.upcase
+				.spacer
+		.row
+			.col-md-4
+				= image_tag(@user.avatar.url(:thumb)) if @user.avatar?
+			.col-md-8.volunteer-profile-box

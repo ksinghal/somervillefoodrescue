@@ -9,11 +9,14 @@
 			.row
 				.col-md-12.volunteer-box
 					.left-section
-						.volunteer-name
-							= link_to volunteer_path(user.id) do
-								= user.full_name
-						.volunteer-phone
-							= number_to_phone(user.phone_number, area_code: true)
+						.volunteer-image
+							= image_tag user.avatar.url, class: "circular"
+						.volunteer-info
+							.volunteer-name
+								= link_to volunteer_path(user.id) do
+									= user.full_name
+							.volunteer-phone
+								= number_to_phone(user.phone_number, area_code: true)
 					.right-section
 						= mail_to user.email, class: "btn btn-primary btn-lg volunteer-button" do
 							%i.fa.fa-envelope
