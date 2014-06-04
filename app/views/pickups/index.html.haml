@@ -28,3 +28,12 @@
 			= render 'partials/pickup_box', pickup: pickup
 		.spacer
 		.spacer
+		- if user_signed_in?
+			- if current_user.admin?
+				.row
+					= link_to new_pickup_path, class: "btn btn-success btn-lg pickup-button col-md-12" do
+						%i.fa.fa-plus
+						&nbsp;
+						New Pickup
+		.spacer
+		.spacer

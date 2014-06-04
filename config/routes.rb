@@ -16,6 +16,7 @@ Somervillefoodrescue::Application.routes.draw do
   get 'take_shift/:pickup_id' => 'actions#take_shift', as: :take_shift
   get 'leave_shift/:pickup_id' => 'actions#leave_shift', as: :leave_shift
 
+  mount PostgresqlLoStreamer::Engine => "/user_avatar"
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :donors
   resources :recipients

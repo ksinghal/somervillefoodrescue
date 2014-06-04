@@ -46,8 +46,9 @@ gem 'haml-rails'
 gem 'bcrypt-ruby', '~> 3.1.2'
 
 # File management and uploads
-gem 'paperclip', '~> 4.1'
-gem 'aws-sdk'
+gem 'carrierwave'
+gem 'carrierwave-postgresql'
+gem 'postgresql_lo_streamer'
 
 # Better and easier form builder
 gem 'simple_form'

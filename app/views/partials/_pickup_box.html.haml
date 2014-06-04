@@ -7,7 +7,7 @@
 				.col-md-4
 					%h4 DONOR
 					.div
-						= link_to root_url do
+						= link_to donor_path(@donor.id) do
 							= truncate(@donor.name, length: 22)
 					.div
 						= "(#{pickup.donor_window_start.strftime('%I:%M %p')} - #{pickup.donor_window_end.strftime('%I:%M %p')})"
@@ -17,7 +17,7 @@
 				.col-md-4
 					%h4 RECIPIENT
 					.div
-						= link_to root_url do
+						= link_to recipient_path(@recipient.id) do
 							= truncate(@recipient.name, length: 22)
 					.div
 						= "(#{pickup.recipient_window_start.strftime('%I:%M %p')} - #{pickup.recipient_window_end.strftime('%I:%M %p')})"
@@ -48,4 +48,4 @@
 					= link_to root_url, class: "btn btn-danger btn-lg pickup-button" do
 						%i.fa.fa-minus-circle
 						&nbsp;
-						Remove
+						Delete

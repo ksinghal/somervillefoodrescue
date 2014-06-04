@@ -35,6 +35,9 @@
                     .left-inner-addon
                         %i.fa.fa-user
                         = f.text_field :full_name, :placeholder => "Full Name", :autofocus => true, class: "form-control"
+                    .left-inner-addon
+                        %i.fa.fa-camera
+                        = f.file_field :avatar
                     %br/
                     .left-inner-addon
                         %i.fa.fa-envelope
