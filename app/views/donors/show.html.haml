@@ -1,1 +1,67 @@
-= @donor.name
+#call.background
+	.container
+		.row
+			.col-md-12.centered
+				%h1.underlined
+					= @donor.name.upcase
+				.spacer
+		.row
+			.col-md-12.volunteer-profile-box
+				.row
+					.col-md-12.text-left
+						%h2
+							Contact Information
+						%hr
+				.row
+					.col-md-12.text-left
+						%h4
+							%i.fa.fa-envelope
+							&nbsp;
+							= mail_to @donor.email
+				.row
+					.col-md-12.text-left
+						%h4
+							%i.fa.fa-phone
+							&nbsp;
+							= number_to_phone(@donor.phone_number, area_code: true)
+				.row.spacer
+		.row
+			.col-md-12.volunteer-profile-box
+				.row
+					.col-md-12.text-left
+						%h2
+							Registered Donations
+						%hr
+					.col-md-12.text-left#volunteer-shift-holder
+						- if Pickup.where(donor_id: @donor.id).count > 0
+							%h4.day_of_week Monday
+							- Pickup.where(donor_id: @donor.id, day_of_week: "Monday").each do |pickup|
+								= render 'partials/pickup_box', pickup: pickup
+							.spacer
+							%h4.day_of_week Tuesday
+							- Pickup.where(donor_id: @donor.id, day_of_week: "Tuesday").each do |pickup|
+								= render 'partials/pickup_box', pickup: pickup
+							.spacer
+							%h4.day_of_week Wednesday
+							- Pickup.where(donor_id: @donor.id, day_of_week: "Wednesday").each do |pickup|
+								= render 'partials/pickup_box', pickup: pickup
+							.spacer
+							%h4.day_of_week Thursday
+							- Pickup.where(donor_id: @donor.id, day_of_week: "Thursday").each do |pickup|
+								= render 'partials/pickup_box', pickup: pickup
+							.spacer
+							%h4.day_of_week Friday
+							- Pickup.where(donor_id: @donor.id, day_of_week: "Friday").each do |pickup|
+								= render 'partials/pickup_box', pickup: pickup
+							.spacer
+							%h4.day_of_week Saturday
+							- Pickup.where(donor_id: @donor.id, day_of_week: "Saturday").each do |pickup|
+								= render 'partials/pickup_box', pickup: pickup
+							.spacer
+							%h4.day_of_week Sunday
+							- Pickup.where(donor_id: @donor.id, day_of_week: "Sunday").each do |pickup|
+								= render 'partials/pickup_box', pickup: pickup
+						- else
+							%h4
+								%i None
+				.row.spacer

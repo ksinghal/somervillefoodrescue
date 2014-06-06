@@ -10,7 +10,7 @@
 				.col-md-12.volunteer-box
 					.left-section
 						.volunteer-image
-							= image_tag user.avatar.url, class: "circular"
+							= image_tag user.avatar, class: "circular"
 						.volunteer-info
 							.volunteer-name
 								= link_to volunteer_path(user.id) do

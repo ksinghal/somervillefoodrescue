@@ -42,3 +42,13 @@
 .volunteer-button {
 	line-height: 34px;
 }
+
+#volunteer-shift-holder {
+	max-height: 300px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+#volunteer-shift-holder .day_of_week {
+	text-decoration: underline;
+}
