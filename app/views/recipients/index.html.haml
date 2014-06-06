@@ -22,7 +22,7 @@
 						.recipient-phone
 							= number_to_phone(recipient.phone_number, area_code: true)
 					.right-section
-						= mail_to recipient.email, class: "btn btn-success btn-lg recipient-button" do
+						= mail_to recipient.email, class: "btn btn-primary btn-lg recipient-button" do
 							%i.fa.fa-envelope
 							&nbsp;
 							Email
