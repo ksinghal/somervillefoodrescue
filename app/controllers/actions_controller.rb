@@ -18,4 +18,23 @@ class ActionsController < ApplicationController
 		@pickup.save
 		redirect_to pickups_path
 	end
+
+	def make_admin
+		@user = User.find(params[:user_id])
+		if current_user.admin?
+			@user.admin = true
+		end
+		@user.save
+		redirect_to volunteers_path
+	end
+
+	def demote_admin
+		@user = User.find(params[:user_id])
+		if current_user.admin?
+			@user.admin = false
+		end
+		@user.save
+		redirect_to volunteers_path
+	end
+
 end

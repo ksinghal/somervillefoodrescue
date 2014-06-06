@@ -29,10 +29,15 @@
 						- if user_signed_in?
 							- if current_user.admin?
 								- if !user.admin?
-									= link_to root_url, class: "btn btn-success btn-lg volunteer-button" do
+									= link_to make_admin_path(user.id), class: "btn btn-success btn-lg volunteer-button" do
 										%i.fa.fa-arrow-circle-up
 										&nbsp;
 										Make Admin
+								- else
+									= link_to demote_admin_path(user.id), class: "btn btn-default btn-lg volunteer-button" do
+										%i.fa.fa-arrow-circle-down
+										&nbsp;
+										Demote From Admin
 								= link_to root_url, class: "btn btn-danger btn-lg volunteer-button" do
 									%i.fa.fa-minus-circle
 									&nbsp;
