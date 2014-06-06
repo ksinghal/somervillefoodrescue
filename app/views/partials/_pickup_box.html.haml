@@ -27,7 +27,7 @@
 						- if pickup.user_id.nil?
 							%i No Volunteer
 						- else
-							= link_to root_url do
+							= link_to volunteer_path(pickup.user_id) do
 								= truncate(User.find(pickup.user_id).full_name, length: 15)
 					.div
 						- if !pickup.user_id.nil?
