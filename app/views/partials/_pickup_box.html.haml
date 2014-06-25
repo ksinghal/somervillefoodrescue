@@ -45,7 +45,11 @@
 						&nbsp;
 						Leave Shift
 				- if current_user.admin?
-					= link_to root_url, class: "btn btn-danger btn-lg pickup-button" do
+					= link_to edit_pickup_path(id: pickup.id, donor: pickup.donor_id, recipient: pickup.recipient_id, day_of_week: pickup.day_of_week), class: "btn btn-primary btn-lg pickup-button" do
+						%i.fa.fa-pencil
+						&nbsp;
+						Edit
+					= link_to pickup_path(pickup), method: :delete, class: "btn btn-danger btn-lg pickup-button" do
 						%i.fa.fa-minus-circle
 						&nbsp;
 						Delete

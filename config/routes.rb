@@ -22,7 +22,7 @@ Somervillefoodrescue::Application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :donors
   resources :recipients
-  resources :pickups
+  resources :pickups, except: ["show"]
   resources :pickup_reports, path: :reports
 
   # Example resource route with options:

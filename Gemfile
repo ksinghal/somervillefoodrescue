@@ -66,6 +66,9 @@ gem 'thin'
 # Documentation
 gem 'annotate', ">=2.6.0"
 
+# Charts and graphs
+gem 'd3-rails'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

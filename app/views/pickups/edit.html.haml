@@ -1,0 +1,66 @@
+#call.background
+	.container.white-text
+		.row
+			.col-md-12
+				%h1
+					Edit This Pickup
+		.row.spacer
+		.row.spacer
+		.row.spacer
+		= form_for @pickup do |f|
+			.row
+				.col-md-2
+				.col-md-8
+					.row
+						.col-md-6
+							%h3 Donor Window:
+							%br/
+							= f.time_select :donor_window_start
+							to
+							= f.time_select :donor_window_end
+						.col-md-6
+							%h3 Recipient Window:
+							%br/
+							= f.time_select :recipient_window_start
+							to
+							= f.time_select :recipient_window_end
+				.col-md-2
+			.row.spacer
+			.row.spacer
+			.row
+				.col-md-2
+				.col-md-8
+					.row
+						.col-md-6
+							%h3 Donor:
+							%br/
+							= f.select :donor_id, options_from_collection_for_select(@donors, "id", "name", @current_donor.id)
+						.col-md-6
+							%h3 Recipient:
+							%br/
+							= f.select :recipient_id, options_from_collection_for_select(@recipients, "id", "name", @current_recipient.id)
+			.row.spacer
+			.row.spacer
+			.row
+				.col-md-2
+				.col-md-8
+					%h3 Instructions:
+					%br/
+					= f.text_area :instructions, style: 'max-width: 100%; width: 100%; height: 300px;'
+				.col-md-2
+			.row.spacer
+			.row.spacer
+			.row
+				.col-md-2
+				.col-md-8
+					%h3 Day Of Week
+					%br/
+					= f.select :day_of_week, options_for_select(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], @current_day_of_week)
+				.col-md-2
+			.row.spacer
+			.row.spacer
+			.row
+				.col-md-2
+				.col-md-8
+					= f.submit "Edit Pickup", class: 'btn btn-success'
+				.col-md-2

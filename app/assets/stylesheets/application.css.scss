@@ -20,6 +20,28 @@ body {
 	padding-top: 110px;
 }
 
+.white-text {
+	color: whitesmoke;
+}
+
+.white-text text-area {
+	color: black !important;
+}
+
+svg {
+  font-family: Lato;
+  font-weight: bold;
+  color: whitesmoke !important;
+  fill: whitesmoke;
+  stroke: white;
+}
+
+.line {
+  fill: none;
+  stroke: white;
+  stroke-width: 2px;
+}
+
 #file-name {
 	text-align: left;
 }
