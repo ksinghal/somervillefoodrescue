@@ -40,6 +40,10 @@
 						&nbsp;
 						Take Shift
 				- if pickup.user_id == current_user.id
+					= link_to new_pickup_report_path(donor_id: @donor.id, recipient_id: @recipient.id), class: "btn btn-success btn-lg pickup-button" do
+						%i.fa.fa-plus
+						&nbsp;
+						New Report
 					= link_to leave_shift_path(pickup.id), class: "btn btn-warning btn-lg pickup-button" do
 						%i.fa.fa-arrow-circle-right
 						&nbsp;
