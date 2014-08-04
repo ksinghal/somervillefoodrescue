@@ -28,7 +28,11 @@
 							Email
 						- if user_signed_in?
 							- if current_user.admin?
-								= link_to root_url, class: "btn btn-danger btn-lg donor-button" do
+								= link_to edit_donor_path(donor), class: "btn btn-warning btn-lg donor-button" do
+									%i.fa.fa-pencil
+									&nbsp;
+									Edit
+								= link_to donor_path(donor), method: :delete, data: { confirm: "Are you sure you want to delete this donor?" }, class: "btn btn-danger btn-lg donor-button" do
 									%i.fa.fa-minus-circle
 									&nbsp;
 									Delete

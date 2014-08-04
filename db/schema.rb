@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140604011722) do
+ActiveRecord::Schema.define(version: 20140626224624) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,13 +30,13 @@ ActiveRecord::Schema.define(version: 20140604011722) do
     t.integer  "donor_id"
     t.integer  "recipient_id"
     t.integer  "produce_weight"
-    t.integer  "dairy_wieght"
     t.integer  "bread_weight"
     t.integer  "meat_weight"
     t.integer  "other_weight"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "volunteer_ids",  default: [], array: true
+    t.integer  "user_id"
+    t.integer  "dairy_weight"
   end
 
   create_table "pickups", force: true do |t|

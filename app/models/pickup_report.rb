@@ -6,7 +6,7 @@
 #  donor_id       :integer
 #  recipient_id   :integer
 #  produce_weight :integer
-#  dairy_wieght   :integer
+#  dairy_weight   :integer
 #  bread_weight   :integer
 #  meat_weight    :integer
 #  other_weight   :integer

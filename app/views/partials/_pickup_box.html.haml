@@ -49,7 +49,7 @@
 						%i.fa.fa-pencil
 						&nbsp;
 						Edit
-					= link_to pickup_path(pickup), method: :delete, class: "btn btn-danger btn-lg pickup-button" do
+					= link_to pickup_path(pickup), method: :delete, data: { confirm: "Are you sure you want to delete this pickup?" }, class: "btn btn-danger btn-lg pickup-button" do
 						%i.fa.fa-minus-circle
 						&nbsp;
 						Delete

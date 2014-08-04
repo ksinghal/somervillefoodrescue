@@ -1,0 +1,37 @@
+#call.background
+	.container.white-text
+		.row
+			.col-md-12
+				%h1
+					Edit Recipient: 
+					= @recipient.name
+		.row.spacer
+		= form_for @recipient do |f|
+			.row.text-left
+				.col-md-2
+				.col-md-8
+					.row
+						.col-md-12
+							%h3 Name:
+							= f.text_field :name, class: "form-control"
+					.row
+						.col-md-12
+							%h3 Address:
+							= f.text_field :address, class: "form-control"
+					.row
+						.col-md-12
+							%h3 Email:
+							= f.email_field :email, class: "form-control"
+					.row
+						.col-md-12
+							%h3 Phone Number (No Punctuation):
+							= f.text_field :phone_number, class: "form-control"
+					.row
+						.col-md-12
+							%h3 Instructions:
+							= f.text_area :instructions, style: "height: 300px;", class: "form-control"
+					.row
+						.col-md-12
+							%br/
+							= f.submit "Edit Recipient", class: 'btn btn-success btn-lg'
+				.col-md-2
