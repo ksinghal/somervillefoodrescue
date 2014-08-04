@@ -14,17 +14,17 @@
 						.col-md-12
 							%h3 Donor (Pickup Location):
 							%br/
-							= f.select :donor_id, options_from_collection_for_select(@donors, "id", "name"), class: 'form-control'
+							= f.select :donor_id, options_from_collection_for_select(@donors, "id", "name", params[:donor_id].to_i), class: 'form-control'
 					.row
 						.col-md-12
 							%h3 Recipient (Dropoff Location):
 							%br/
-							= f.select :recipient_id, options_from_collection_for_select(@recipients, "id", "name"), class: 'form-control'
+							= f.select :recipient_id, options_from_collection_for_select(@recipients, "id", "name", params[:recipient_id].to_i), class: 'form-control'
 					.row
 						.col-md-12
 							%h3 Volunteer:
 							%br/
-							= f.select :user_id, options_from_collection_for_select(@volunteers, "id", "full_name"), class: 'form-control'
+							= f.select :user_id, options_from_collection_for_select(@volunteers, "id", "full_name", current_user.id), class: 'form-control'
 			.row.spacer
 			.row.spacer
 			.row

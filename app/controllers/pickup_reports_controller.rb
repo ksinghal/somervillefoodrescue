@@ -1,5 +1,4 @@
-class PickupReportsController < ApplicationController
-	
+class PickupReportsController < ApplicationController	
 	def index
 		@reports = PickupReport.all
 	end
@@ -13,10 +12,15 @@ class PickupReportsController < ApplicationController
 	end
 
 	def new
-		@donors = Donor.all
-		@recipients = Recipient.all
-		@volunteers = User.all
-		@report = PickupReport.new
+		if user_signed_in?
+			@donors = Donor.all
+			@recipients = Recipient.all
+			@volunteers = User.all
+			@report = PickupReport.new
+		else
+			flash[:notice] = "Please sign in before creating a report."
+			redirect_to action: :index
+		end
 	end
 
 	def create
