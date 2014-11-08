@@ -22,6 +22,13 @@ class DonorsController < ApplicationController
 		@donor = Donor.find(params[:id])
 	end
 
+	def update
+		@donor = Donor.find(params[:id])
+		@donor.update_attributes(donor_params)
+
+		redirect_to action: :index
+	end
+
 	def destroy
 		@donor = Donor.find(params[:id])
 		@donor.destroy

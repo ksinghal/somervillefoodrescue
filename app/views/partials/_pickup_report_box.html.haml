@@ -1,0 +1,71 @@
+- pickup = Pickup.find(pickup_report.pickup_id)
+- @donor = Donor.find(pickup.donor_id)
+- @recipient = Recipient.find(pickup.recipient_id)
+.row
+	.col-md-12.pickup-box
+		.row
+			.col-md-1
+				%h4
+					%u DATE
+				.div
+					= pickup_report.created_at.strftime('%m/%d/%y')
+			.col-md-2
+				%h4
+					%u DONOR
+				.div
+					= link_to donor_path(@donor.id) do
+						= truncate(@donor.name, length: 22)
+				.div
+					= "(#{pickup.donor_window_start.strftime('%I:%M %p')} - #{pickup.donor_window_end.strftime('%I:%M %p')})"
+			.col-md-1
+				%h4
+					%i.fa.fa-arrow-right.full-width.centered-text
+			.col-md-2
+				%h4
+					%u RECIPIENT
+				.div
+					= link_to recipient_path(@recipient.id) do
+						= truncate(@recipient.name, length: 22)
+				.div
+					= "(#{pickup.recipient_window_start.strftime('%I:%M %p')} - #{pickup.recipient_window_end.strftime('%I:%M %p')})"
+		.row.spacer
+		.row
+			.col-md-2
+				%h4
+					%u PRODUCE
+				.div
+					= pickup_report.produce_weight
+					Pounds
+			.col-md-2
+				%h4
+					%u DAIRY
+				.div
+					= pickup_report.dairy_weight
+					Pounds
+			.col-md-2
+				%h4
+					%u MEAT
+				.div
+					= pickup_report.meat_weight
+					Pounds
+			.col-md-2
+				%h4
+					%u BREAD
+				.div
+					= pickup_report.bread_weight
+					Pounds
+			.col-md-2
+				%h4
+					%u OTHER
+				.div
+					= pickup_report.other_weight
+					Pounds
+			.col-md-2
+				%h4
+					%u TOTAL
+				.div
+					= pickup_report.produce_weight + pickup_report.dairy_weight + pickup_report.meat_weight + pickup_report.bread_weight + pickup_report.other_weight
+					Pounds
+		.row.spacer
+		.row
+			.col-md-4

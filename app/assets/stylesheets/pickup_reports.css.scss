@@ -1,3 +1,16 @@
 // Place all the styles related to the pickup_reports controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.left-line {
+	height: 100%;
+	border-left: 1px solid black;
+}
+
+.centered-text {
+	text-align: center;
+}
+
+.full-width {
+	width: 100%;
+}

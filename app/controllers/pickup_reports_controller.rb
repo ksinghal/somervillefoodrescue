@@ -1,14 +1,12 @@
-class PickupReportsController < ApplicationController	
-	def index
-		@reports = PickupReport.all
-	end
+class PickupReportsController < ApplicationController
 
 	def show
-		@report = PickupReport.find(params[:id])
+		@pickup_report = PickupReport.find(params[:id])
 	end
 
 	def index
-		@reports = PickupReport.all
+		@pickup_reports = PickupReport.all
+		@pickup_reports = @pickup_reports.paginate(:page => params[:page], :per_page => 10)
 	end
 
 	def new
@@ -17,14 +15,17 @@ class PickupReportsController < ApplicationController
 			@recipients = Recipient.all
 			@volunteers = User.all
 			@report = PickupReport.new
+			@report.pickup_id = params[:pickup_id]
+			@report.save
 		else
-			flash[:notice] = "Please sign in before creating a report."
+			flash[:notice] = "Please sign in before creating a pickup report."
 			redirect_to action: :index
 		end
 	end
 
-	def create
-		@report = PickupReport.create(pickup_report_params)
+	def update
+		@pickup_report = PickupReport.find(params[:id])
+		@pickup_report.update_attributes(pickup_report_params)
 
 		redirect_to action: :index
 	end

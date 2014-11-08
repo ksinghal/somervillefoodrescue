@@ -9,8 +9,6 @@
 			.row
 				.col-md-12.volunteer-box
 					.left-section
-						.volunteer-image
-							= image_tag user.avatar, class: "circular"
 						.volunteer-info
 							.volunteer-name
 								= link_to volunteer_path(user.id) do
@@ -22,10 +20,10 @@
 							%i.fa.fa-envelope
 							&nbsp;
 							Email
-						= link_to volunteer_path(user.id), class: "btn btn-warning btn-lg volunteer-button" do
-							%i.fa.fa-bar-chart-o
-							&nbsp;
-							Stats
+						/ = link_to volunteer_path(user.id), class: "btn btn-warning btn-lg volunteer-button" do
+						/ 	%i.fa.fa-bar-chart-o
+						/ 	&nbsp;
+						/ 	Stats
 						- if user_signed_in?
 							- if current_user.admin?
 								- if !user.admin?
@@ -38,7 +36,7 @@
 										%i.fa.fa-arrow-circle-down
 										&nbsp;
 										Demote Admin
-								= link_to root_url, class: "btn btn-danger btn-lg volunteer-button" do
+								= link_to admin_destroy_user_path(user.id), method: :delete, confirm: 'Are you sure?', class: "btn btn-danger btn-lg volunteer-button" do
 									%i.fa.fa-minus-circle
 									&nbsp;
 									Delete

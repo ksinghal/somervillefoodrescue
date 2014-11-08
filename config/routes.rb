@@ -1,5 +1,5 @@
 Somervillefoodrescue::Application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations'}
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -17,6 +17,8 @@ Somervillefoodrescue::Application.routes.draw do
   get 'leave_shift/:pickup_id' => 'actions#leave_shift', as: :leave_shift
   get 'make_admin/:user_id' => 'actions#make_admin', as: :make_admin
   get 'demote_admin/:user_id' => 'actions#demote_admin', as: :demote_admin
+
+  match 'users/:id' => 'pages#destroy_user', :via => :delete, :as => :admin_destroy_user
 
   mount PostgresqlLoStreamer::Engine => "/user_avatar"
   # Example resource route (maps HTTP verbs to controller actions automatically):

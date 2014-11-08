@@ -5,41 +5,8 @@
 				%h1.underlined
 					PICKUP REPORTS
 				.spacer
+		- @pickup_reports.each do |pickup_report|
+			= render 'partials/pickup_report_box', pickup_report: pickup_report
 		.row
-			.col-md-12
-				%h3
-					= flash[:notice]
-				.spacer
-				.spacer
-				.spacer
-				%h3
-					Pickup report chart will be here. Individual reports will also appear here (for now they are saved in the database but not displayed). Fill out a new one by clicking the button below:
-				.spacer
-				.spacer
-				.spacer
-		.row
-			.col-md-12
-				= link_to new_pickup_report_path do
-					.btn.btn-success.btn-lg
-						%i.fa.fa-plus
-						New Pickup Report
-				.spacer
-				.spacer
-				.spacer
-				.spacer
-				.spacer
-				.spacer
-				.spacer
-				.spacer
-				.spacer
-				.spacer
-				.spacer
-				.spacer
-				.spacer
-				.spacer
-				.spacer
-				.spacer
-				.spacer
-				.spacer
-				.spacer
-				
+			.col-md-12.centered
+				= will_paginate @pickup_reports

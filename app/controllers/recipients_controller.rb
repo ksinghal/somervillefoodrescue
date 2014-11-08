@@ -22,6 +22,13 @@ class RecipientsController < ApplicationController
 		@recipient = Recipient.find(params[:id])
 	end
 
+	def update
+		@recipient = Recipient.find(params[:id])
+		@recipient.update_attributes(recipient_params)
+
+		redirect_to action: :index
+	end
+
 	def destroy
 		@recipient = Recipient.find(params[:id])
 		@recipient.destroy
