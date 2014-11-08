@@ -30,6 +30,13 @@ class PickupReportsController < ApplicationController
 		redirect_to action: :index
 	end
 
+	def destroy
+		@pickup_report = PickupReport.find(params[:id])
+		@pickup_report.destroy
+
+		redirect_to action: :index
+	end
+
 	private
 
 	def pickup_report_params

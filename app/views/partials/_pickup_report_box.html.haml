@@ -69,3 +69,8 @@
 		.row.spacer
 		.row
 			.col-md-4
+				- if current_user.admin?
+					= link_to pickup_report_path(pickup_report), method: :delete, data: { confirm: "Are you sure you want to delete this pickup report?" }, class: "btn btn-danger btn-lg pickup-button" do
+						%i.fa.fa-minus-circle
+						&nbsp;
+						Delete
