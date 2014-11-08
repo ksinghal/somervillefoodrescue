@@ -1,12 +1,52 @@
 #headerwrap
     .container
+        .row.spacer
+            .col-lg-12
+                %h1.h1-title-shwopp TUFTS FOOD RESCUE
         .row
             .col-lg-12
-                .spacer
-                .spacer
-                %h1.h1-title-shwopp TUFTS FOOD RESCUE
-                .spacer
-                .spacer
+                %i
+                    %h3
+                        Since November 8th, 2014 TFR has rescued the following amounts of food from going to waste:
+        .row.spacer
+            .col-sm-2
+                %h4
+                    %u
+                        PRODUCE
+                %h3
+                    = "#{@produce_weight} lbs."
+            .col-sm-2
+                %h4
+                    %u
+                        DAIRY
+                %h3
+                    = "#{@dairy_weight} lbs."
+            .col-sm-2
+                %h4
+                    %u
+                        MEAT
+                %h3
+                    = "#{@meat_weight} lbs."
+            .col-sm-2
+                %h4
+                    %u
+                        BREAD
+                %h3
+                    = "#{@bread_weight} lbs."
+            .col-sm-2
+                %h4
+                    %u
+                        OTHER
+                %h3
+                    = "#{@other_weight} lbs."
+            .col-sm-2
+                %h4
+                    %u
+                        TOTAL
+                %h3
+                    = "#{@total_weight} lbs."
+        .row.spacer
+            .col-lg-12
                 %i.fa.fa-angle-down
 #call
     .container
